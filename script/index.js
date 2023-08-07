@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
         button.addEventListener('click', () => {
-            if (formattedInputValue.length != 17) {
+            if (formattedInputValue.length != 17 || formattedInputValue.length == 2) {
                 tel.classList.add('invalid')
                 spanInvalid.classList.add('invalid')
             } else {
@@ -54,19 +54,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 input.value = formattedInputValue  = ''
             }
         })
-        console.log(formattedInputValue.length)
-        if (input.value.length != 18) {
+        if (input.value.length != 18 ) {
             tel.classList.add('invalid')
             spanInvalid.classList.add('invalid')
         } else {
             tel.classList.remove('invalid')
             spanInvalid.classList.remove('invalid')
         }
-        input.value = formattedInputValue;
+        return input.value = formattedInputValue;
     }
     closBtn.addEventListener('click', () => {
         modal.classList.remove('active')
         modalWindow.classList.remove('active')
+    })
+    button.addEventListener('click', () => {
+        if (tel.value.length == 0) {
+            tel.classList.add('invalid')
+            spanInvalid.classList.add('invalid')
+        }
     })
     tel.addEventListener('input', onPhoneInput);
 });
