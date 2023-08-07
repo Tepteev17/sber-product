@@ -51,9 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 modalWindow.style.top = `${window.scrollY}px`
                 modalWindow.classList.add('active')
                 modal.classList.add('active')
-                input.value = ''
+                input.value = formattedInputValue  = ''
             }
         })
+        console.log(formattedInputValue.length)
         if (input.value.length != 18) {
             tel.classList.add('invalid')
             spanInvalid.classList.add('invalid')
